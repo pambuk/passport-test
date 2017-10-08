@@ -19,6 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/cow', function () {
+    $cow = \Cowsayphp\Farm::create(\Cowsayphp\Farm\Cow::class);
+    echo '<pre>'.$cow->say('Howdy!').'</pre>';
+});
+
 Route::get('/redirect', function () {
     $query = http_build_query([
         'client_id' => 3,
